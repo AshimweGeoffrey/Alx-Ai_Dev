@@ -14,6 +14,24 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Layout helpers */
+.container {
+  max-width: 72rem; /* 1152px */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.hero {
+  background: linear-gradient(180deg, #ffffff, #f8fafc);
+}
+
+.lead {
+  color: #475569;
+  line-height: 1.6;
+}
+
 /* Utility classes */
 .min-h-screen {
   min-height: 100vh;
@@ -256,69 +274,69 @@ body {
   color: #374151;
 }
 
-/* Additional utility classes */
-.max-w-2xl {
-  max-width: 42rem;
+/* Buttons */
+.btn {
+  display: inline-block;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+}
+.btn-primary {
+  background-color: #2563eb;
+  color: #fff;
+}
+.btn-primary:hover {
+  background-color: #1d4ed8;
+}
+.btn-outline {
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+  background: #fff;
+}
+.btn-outline:hover {
+  background: #f8fafc;
 }
 
-.w-4 {
-  width: 1rem;
+/* Cards */
+.card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
 }
 
-.h-4 {
-  height: 1rem;
+/* Typography */
+.h1 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #0f172a;
+}
+.h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+.muted {
+  color: #64748b;
 }
 
-.h-2 {
-  height: 0.5rem;
+/* Improve header */
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header a {
+  text-decoration: none;
 }
 
-.text-blue-600 {
-  color: #2563eb;
-}
-
-.cursor-pointer {
-  cursor: pointer;
-}
-
-.disabled\:bg-gray-300:disabled {
-  background-color: #d1d5db;
-}
-
-.disabled\:cursor-not-allowed:disabled {
-  cursor: not-allowed;
-}
-
-.bg-gray-500 {
-  background-color: #6b7280;
-}
-
-.hover\:bg-gray-600:hover {
-  background-color: #4b5563;
-}
-
-.bg-gray-200 {
-  background-color: #e5e7eb;
-}
-
-.rounded-full {
-  border-radius: 9999px;
-}
-
-.transition-all {
-  transition: all 0.15s ease-in-out;
-}
-
-.duration-300 {
-  transition-duration: 300ms;
-}
-
-.hover\:text-blue-600:hover {
-  color: #2563eb;
-}
-
-.text-blue-500 {
-  color: #3b82f6;
+/* Spacing utilities */
+.section {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
 /* Media queries for responsive design */
