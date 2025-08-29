@@ -298,6 +298,37 @@ body {
 .btn-outline:hover {
   background: #f8fafc;
 }
+.btn-accent {
+  background: #a78bfa;
+  color: #0f172a;
+}
+.btn-accent:hover {
+  background: #8b5cf6;
+  color: #fff;
+}
+.btn-success {
+  background: #10b981;
+  color: #fff;
+}
+.btn-success:hover {
+  background: #059669;
+}
+.btn-warning {
+  background: #f59e0b;
+  color: #0f172a;
+}
+.btn-warning:hover {
+  background: #d97706;
+  color: #0b1220;
+}
+.btn-info {
+  background: #06b6d4;
+  color: #0f172a;
+}
+.btn-info:hover {
+  background: #0891b2;
+  color: #fff;
+}
 
 /* Cards */
 .card {
@@ -350,4 +381,294 @@ header a {
   .lg\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+}
+
+/* Additional utilities for enhanced pages */
+.gap-3 {
+  gap: 0.75rem;
+}
+.gap-4 {
+  gap: 1rem;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.text-sm {
+  font-size: 0.875rem;
+}
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+.mb-3 {
+  margin-bottom: 0.75rem;
+}
+.border-gray-200 {
+  border-color: #e5e7eb;
+}
+
+/* Alignment utility */
+.items-end {
+  align-items: flex-end;
+}
+
+/* Panel wrapper for section content */
+.panel {
+  background: var(--bg-elevated);
+  border: 1px solid var(--separator);
+  border-radius: 1rem;
+  padding: 1.25rem;
+  box-shadow: 0 8px 30px rgba(2, 8, 23, 0.06);
+}
+
+/* Auto-fit responsive grid */
+.auto-grid {
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+/* Theme variables */
+:root {
+  --bg-surface: #ffffff;
+  --bg-elevated: rgba(255, 255, 255, 0.8);
+  --bg-card: #ffffff;
+  --bg-grid: #f1f5f9;
+  --bg-radial: rgba(37, 99, 235, 0.08);
+  --text-foreground: #0f172a;
+  --text-muted: #64748b;
+  --separator: #e2e8f0;
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+}
+
+.dark {
+  --bg-surface: #0b1220;
+  --bg-elevated: rgba(9, 14, 24, 0.6);
+  --bg-card: #0f172a;
+  --bg-grid: #0e1726;
+  --bg-radial: rgba(14, 165, 233, 0.12);
+  --text-foreground: #e2e8f0;
+  --text-muted: #94a3b8;
+  --separator: #1f2937;
+  --primary: #38bdf8;
+  --primary-hover: #22d3ee;
+}
+
+/* Theme helpers */
+.bg-surface {
+  background: var(--bg-surface);
+}
+.bg-elevated {
+  background: var(--bg-elevated);
+}
+.text-foreground {
+  color: var(--text-foreground);
+}
+.muted {
+  color: var(--text-muted);
+}
+.border-separator {
+  border-color: var(--separator);
+}
+
+/* Decorative grid background */
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  background-image: linear-gradient(var(--bg-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--bg-grid) 1px, transparent 1px);
+  background-size: 24px 24px, 24px 24px;
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 70%);
+  z-index: 0;
+}
+.bg-radial {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -10vh;
+  width: 80vw;
+  height: 60vh;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at 50% 0%,
+    var(--bg-radial),
+    transparent 60%
+  );
+  filter: blur(12px);
+}
+
+/* Modern nav link */
+.nav-link {
+  color: var(--text-foreground);
+  opacity: 0.9;
+}
+.nav-link:hover {
+  color: var(--primary);
+  opacity: 1;
+}
+
+/* Buttons using tokens */
+.btn {
+  font-weight: 600;
+  padding: 0.6rem 0.9rem;
+  border-radius: 0.5rem;
+}
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: var(--primary-hover);
+}
+.btn-outline {
+  border: 1px solid var(--separator);
+  background: transparent;
+  color: var(--text-foreground);
+}
+.btn-outline:hover {
+  background: rgba(148, 163, 184, 0.12);
+}
+
+/* Cards with glass effect */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--separator);
+  border-radius: 0.9rem;
+  padding: 1.25rem;
+  box-shadow: 0 10px 30px rgba(2, 8, 23, 0.06);
+}
+
+/* Typography */
+.h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.lead {
+  color: var(--text-muted);
+}
+
+/* Backdrop blur utility */
+.backdrop-blur {
+  backdrop-filter: saturate(180%) blur(10px);
+}
+
+/* Position/z-index helpers */
+.relative {
+  position: relative;
+}
+.sticky {
+  position: sticky;
+}
+.top-0 {
+  top: 0;
+}
+.z-10 {
+  z-index: 10;
+}
+.z-20 {
+  z-index: 20;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(90deg, var(--primary), #a78bfa, #22d3ee);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Hover lift for cards */
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(2, 8, 23, 0.12);
+}
+
+/* Progress bar styles */
+.bar-rail {
+  background: rgba(148, 163, 184, 0.3);
+  border-radius: 9999px;
+  height: 0.5rem;
+}
+.bar-fill {
+  background: var(--primary);
+  height: 0.5rem;
+  border-radius: 9999px;
+  transition: width 0.3s ease;
+}
+
+/* Token-based text/bg helpers */
+.text-primary {
+  color: var(--primary);
+}
+.bg-primary {
+  background: var(--primary);
+}
+
+/* Glass effect */
+.glass {
+  backdrop-filter: blur(10px) saturate(140%);
+  background: var(--bg-elevated);
+}
+
+/* Gradient border wrapper */
+.gradient-border {
+  position: relative;
+}
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--primary), #a78bfa, #22d3ee);
+  z-index: -1;
+}
+
+/* Media frame for hero image */
+.media-frame {
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid var(--separator);
+  box-shadow: 0 20px 50px rgba(2, 8, 23, 0.18);
+}
+
+/* Keep existing utilities & media queries below */
+.inline-flex {
+  display: inline-flex;
+}
+.items-center {
+  align-items: center;
+}
+.gap-2 {
+  gap: 0.5rem;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+.h-full {
+  height: 100%;
+}
+.flex-col {
+  flex-direction: column;
+}
+.mt-auto {
+  margin-top: auto;
+}
+.items-stretch {
+  align-items: stretch;
+}
+.gap-8 {
+  gap: 2rem;
 }

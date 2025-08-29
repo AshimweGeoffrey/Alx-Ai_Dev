@@ -1,26 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
 import Link from "next/link";
-
-// Mock poll data
-const pollsData = {
-  1: {
-    id: 1,
-    question: "What's your favorite programming language?",
-    options: ["JavaScript", "Python", "TypeScript", "Go"],
-  },
-  2: {
-    id: 2,
-    question: "Which framework do you prefer for web development?",
-    options: ["React", "Vue", "Angular", "Svelte"],
-  },
-  3: {
-    id: 3,
-    question: "What's your preferred development environment?",
-    options: ["VS Code", "WebStorm", "Vim", "Sublime Text"],
-  },
-};
+import { getPollById } from "@/lib/polls";
 
 interface PageProps {
   params: {
@@ -34,7 +16,7 @@ export default function PollDetailPage({ params }: PageProps) {
   const [votes, setVotes] = useState<{ [key: string]: number }>({});
 
   const pollId = parseInt(params.id);
-  const poll = pollsData[pollId as keyof typeof pollsData];
+  const poll = getPollById(pollId);
 
   if (!poll) {
     return (
@@ -57,11 +39,10 @@ export default function PollDetailPage({ params }: PageProps) {
     );
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!selectedOption) return;
 
-    // Simulate vote counting
     setVotes((prev) => ({
       ...prev,
       [selectedOption]: (prev[selectedOption] || 0) + 1,
@@ -81,18 +62,22 @@ export default function PollDetailPage({ params }: PageProps) {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4">
-      <div className="max-w-2xl mx-auto">
-        <div className="mb-6">
-          <Link
-            href="/"
-            className="text-blue-500 hover:text-blue-600 font-medium"
-          >
+    <div className="section">
+      <div className="container">
+        <div className="mb-4 flex items-center justify-between">
+          <Link href="/polls" className="text-blue-500 hover:text-blue-600">
             ← Back to Polls
           </Link>
+          <button
+            className="btn btn-outline"
+            onClick={() => navigator.clipboard.writeText(window.location.href)}
+          >
+            Share
+          </button>
         </div>
 
-        <div className="bg-white rounded-lg shadow-md p-6">
+        <div className="card">
+          <div className="mb-2 text-sm muted">{poll.category}</div>
           <h1 className="text-2xl font-bold text-gray-900 mb-6">
             {poll.question}
           </h1>
@@ -153,9 +138,9 @@ export default function PollDetailPage({ params }: PageProps) {
                           {votes[option] || 0} votes ({getPercentage(option)}%)
                         </span>
                       </div>
-                      <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div className="w-full bar-rail">
                         <div
-                          className="bg-blue-500 h-2 rounded-full transition-all duration-300"
+                          className="bar-fill"
                           style={{ width: `${getPercentage(option)}%` }}
                         ></div>
                       </div>
